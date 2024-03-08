@@ -1,0 +1,79 @@
+<div class="container">
+    <h1>Catálogo de Clientes</h1>
+
+    <h4>Alta de clientes</h4>
+    
+    <div>
+        <div class="col-sm-4">
+            <p>
+                <label for="">Nombre</label>
+                <input type="text" class="form-control" [(ngModel)]="libro.nombre"/>
+            </p>
+            <p>
+                <label for="">RFC</label>
+                <input type="text" class="form-control" [(ngModel)]="libro.rfc"/>
+            </p>
+            <p>
+                <label for="">Domicilio</label>
+                <input type="text" class="form-control" [(ngModel)]="libro.domicilio"/>
+            </p>
+            <p>
+                <label for="">Tipo de cliente</label>
+                <input type="text" class="form-control" [(ngModel)]="libro.tipo"/>
+            </p>
+    
+            <table>
+                <tr>
+                    <td>
+                        <button type="button" class="btn btn-primary" (click)="this.insertarLibro()">
+                            Insertar
+                        </button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-warning" (click)="this.updateLibro()">
+                            Actualizar
+                        </button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-danger" (click)="this.deleteLibro(libro.id)">
+                            Eliminar
+                        </button>
+                    </td>
+                </tr>
+            </table>
+            <br><br>
+        </div>
+        <div>
+            <p>
+                <strong>Tipos de cliente</strong>
+            </p>
+            -Activos <br>
+            -Inactivos <br>
+            -Deudores <br>
+            -Sin definir <br>
+        </div>
+    </div>
+
+    <table class="table">
+        <thead>
+            <th>Nombre</th>
+            <th>RFC</th>
+            <th>Domicilio</th>
+            <th>Tipo de cliente</th>
+            <th>Seleccionar</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let libro of libros">
+                <td>{{ libro.nombre }}</td>
+                <td>{{ libro.rfc }}</td>
+                <td>{{ libro.domicilio }}</td>
+                <td>{{ libro.tipo }}</td>
+                <td>
+                    <button type="button" class="btn btn-primary" (click)="selectLibro(libro)">
+                        Seleccionar
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
