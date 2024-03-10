@@ -1,72 +1,73 @@
 <div class="container">
-    <h1>Catálogo de Clientes</h1>
+    <h1>ALTA DE TAREAS</h1>
 
-    <h4>Alta de clientes</h4>
     
-    <div>
+    <div class="form">
         <div class="col-sm-4">
             <p>
-                <label for="">Nombre</label>
-                <input type="text" class="form-control" [(ngModel)]="libro.nombre"/>
+                <label for="">Nombre de la tarea</label>
+                <input type="text" class="form-control" [(ngModel)]="libro.nombret"/>
             </p>
             <p>
-                <label for="">RFC</label>
-                <input type="text" class="form-control" [(ngModel)]="libro.rfc"/>
+                <label for="">Descripcion</label>
+                <input type="text" class="form-control" [(ngModel)]="libro.des"/>
             </p>
             <p>
-                <label for="">Domicilio</label>
-                <input type="text" class="form-control" [(ngModel)]="libro.domicilio"/>
+                <label for="">Fecha</label>
+                <input type="text" class="form-control" [(ngModel)]="libro.fecha"/>
             </p>
             <p>
-                <label for="">Tipo de cliente</label>
+                <label for="">Estado de la tarea</label>
                 <input type="text" class="form-control" [(ngModel)]="libro.tipo"/>
             </p>
     
-            <table>
-                <tr>
-                    <td>
-                        <button type="button" class="btn btn-primary" (click)="this.insertarLibro()">
-                            Insertar
-                        </button>
-                    </td>
-                    <td>
-                        <button type="button" class="btn btn-warning" (click)="this.updateLibro()">
-                            Actualizar
-                        </button>
-                    </td>
-                    <td>
-                        <button type="button" class="btn btn-danger" (click)="this.deleteLibro(libro.id)">
-                            Eliminar
-                        </button>
-                    </td>
-                </tr>
-            </table>
-            <br><br>
+            <div class="datos">
+                <table>
+                    <tr>
+                        <td>
+                            <button type="button" class="btn btn-primary" (click)="this.insertarLibro()">
+                                Insertar
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-warning" (click)="this.updateLibro()">
+                                Actualizar
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger" (click)="this.deleteLibro(libro.id)">
+                                Eliminar
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <br>
         </div>
-        <div>
+        <div class="lista">
             <p>
                 <strong>Tipos de cliente</strong>
             </p>
-            -Activos <br>
-            -Inactivos <br>
-            -Deudores <br>
-            -Sin definir <br>
+            -Pendiente <br>
+            -En Progreso <br>
+            -Completado <br>
+            -Sin definir <br><br><br>
         </div>
     </div>
 
-    <table class="table">
+    <table class="table table table-striped">
         <thead>
-            <th>Nombre</th>
-            <th>RFC</th>
-            <th>Domicilio</th>
-            <th>Tipo de cliente</th>
+            <th>Nombre de la tarea</th>
+            <th>Descripcion</th>
+            <th>Fecha de vencimiento</th>
+            <th>Estado de la tarea</th>
             <th>Seleccionar</th>
         </thead>
         <tbody>
             <tr *ngFor="let libro of libros">
-                <td>{{ libro.nombre }}</td>
-                <td>{{ libro.rfc }}</td>
-                <td>{{ libro.domicilio }}</td>
+                <td>{{ libro.nombret }}</td>
+                <td>{{ libro.des }}</td>
+                <td>{{ libro.fecha }}</td>
                 <td>{{ libro.tipo }}</td>
                 <td>
                     <button type="button" class="btn btn-primary" (click)="selectLibro(libro)">
